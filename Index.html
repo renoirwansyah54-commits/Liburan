@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pilihan Reno</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f2f2f2;
+      padding: 20px;
+    }
+    .box {
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      max-width: 400px;
+      margin: auto;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    button {
+      width: 100%;
+      padding: 12px;
+      margin-top: 10px;
+      border: none;
+      border-radius: 8px;
+      background: #007bff;
+      color: white;
+      font-size: 16px;
+    }
+    button:hover {
+      background: #0056b3;
+    }
+    .hasil {
+      margin-top: 15px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+<div class="box" id="app">
+  <h2>Pilih Karakter</h2>
+  <button onclick="pilihReno()">Reno</button>
+</div>
+
+<script>
+  function pilihReno() {
+    document.getElementById("app").innerHTML = `
+      <h2>Pilih Cerita</h2>
+      <button onclick="cerita()">Di liburan Idul Fitri</button>
+    `;
+  }
+
+  function cerita() {
+    document.getElementById("app").innerHTML = `
+      <h2>Apa yang Reno lakukan?</h2>
+      <button onclick="hasil('belajar')">Lanjut gas belajar</button>
+      <button onclick="hasil('healing')">Sedikit istirahat & healing</button>
+      <button onclick="hasil('keluar')">Keluarin dari sekolah</button>
+    `;
+  }
+
+  function hasil(pilihan) {
+    let teks = "";
+
+    if (pilihan === "belajar") {
+      teks = "Reno nambah ilmu, tapi stress, capek, dan bosen.";
+    } 
+    else if (pilihan === "healing") {
+      teks = "Reno bisa belajar dengan enjoy. Pikiran balik fresh. Reno bahagia.";
+    } 
+    else if (pilihan === "keluar") {
+      teks = "Reno putus sekolah.";
+    }
+
+    document.getElementById("app").innerHTML = `
+      <h2>Hasil</h2>
+      <p class="hasil">${teks}</p>
+      <button onclick="location.reload()">Ulangi</button>
+    `;
+  }
+</script>
+
+</body>
+</html>
